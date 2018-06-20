@@ -237,7 +237,6 @@
         areaError = computeAreaError(polygons);
         flickeringMitigation.add(areaError);
         converged = areaError < areaErrorTreshold;
-        // console.log("error %: "+Math.round(areaError*100*1000/totalArea)/1000);
         tick(polygons, iterationCount);
       }
 
