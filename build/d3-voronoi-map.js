@@ -165,7 +165,7 @@
   };
 
   function voronoiMap() {
-    console.log("hello from the other side");
+    console.log("hello from d3-voronoi-map");
     //begin: constants
     var DEFAULT_CONVERGENCE_RATIO = 0.01;
     var DEFAULT_MAX_ITERATION_COUNT = 50;
