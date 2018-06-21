@@ -13,7 +13,6 @@ import randomInitialPosition from './initial-position-policies/random';
 import halfAverageAreaInitialWeight from './initial-weight-policies/half-average-area';
 
 export function voronoiMap() {
-  console.log("hello from d3-voronoi-map");
   //begin: constants
   var DEFAULT_CONVERGENCE_RATIO = 0.01;
   var DEFAULT_MAX_ITERATION_COUNT = 50;
@@ -388,10 +387,16 @@ export function voronoiMap() {
 
     //begin: extract weights
     weights = data.map(function (d, i, arr) {
+
+      initialPosition =
+        d.polygon ?
+        d.polygon.site.originalObject.data.initialPosition :
+        initialPosition(d, i, arr, _voronoiMap);
+
       return {
         index: i,
         weight: Math.max(weight(d), minAllowedWeight),
-        initialPosition: initialPosition(d, i, arr, _voronoiMap),
+        initialPosition: initialPosition,
         initialWeight: initialWeight(d, i, arr, _voronoiMap),
         originalData: d
       };
