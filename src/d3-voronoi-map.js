@@ -388,7 +388,7 @@ export function voronoiMap() {
     //begin: extract weights
     weights = data.map(function (d, i, arr) {
 
-      initialPosition =
+      var initialPosValues =
         d.polygon ?
         d.polygon.site.originalObject.data.initialPosition :
         initialPosition(d, i, arr, _voronoiMap);
@@ -396,7 +396,7 @@ export function voronoiMap() {
       return {
         index: i,
         weight: Math.max(weight(d), minAllowedWeight),
-        initialPosition: initialPosition,
+        initialPosition: initialPosValues,
         initialWeight: initialWeight(d, i, arr, _voronoiMap),
         originalData: d
       };
